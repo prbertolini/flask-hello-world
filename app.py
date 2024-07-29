@@ -40,6 +40,6 @@ Values
 ('Nikola', 'Jokic', 'Denver', 'Nuggets', 15),
 ('Kawhi', 'Leonard', 'Los Angeles', 'Clippers', 2);
            ''')
-           conn.commit()
-           conn.close()
+    conn.commit()
+    conn.close()
     return "Successful DB insert!"
