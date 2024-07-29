@@ -11,15 +11,16 @@ def db_test():
 @app.route('/')
 def hello_world():
     return 'Hello, World! from Rody Bertolini in 3308'
-@app.route('/db_create'):
+@app.route('/db_create')
     def db_create():
+        conn = psycopg2.connect("postgresql://rody:CAwpXsTvoU1FpEhTg4TIYZyuqD1IBXky@dpg-cqjqlqmehbks73cgrjo0-a/rody")
         cur = conn.cursor()
         cur.execute('''
         CREATE TABLE IF NOT EXISTS Basketball(
             First varchar(255),
             Last varchar(255),
             City varchar(255),
-            Name varchar(255)
+            Name varchar(255),
             Number int
             );
             ''')
