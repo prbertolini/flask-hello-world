@@ -43,3 +43,21 @@ Values
     conn.commit()
     conn.close()
     return "Successful DB insert!"
+
+@app.route('/db_select')
+def db_select():
+    conn = psycopg2.connect("postgresql://rody:CAwpXsTvoU1FpEhTg4TIYZyuqD1IBXky@dpg-cqjqlqmehbks73cgrjo0-a/rody")
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM Basketball;")
+    records = cur.fetchall()
+    conn.close()
+    
+    table = "<table border="1">"
+    table += "<tr><th>First</th><th>Last</th><th>City></th><Name</th><th>Number</th></tr>"
+    for row in records:
+        table += "<tr>"
+        for col in row:
+            table += f'<td>{col}</td>'
+        table +="</tr>"
+    table += "</table>"
+    return table
