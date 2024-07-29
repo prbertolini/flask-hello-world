@@ -61,3 +61,13 @@ def db_select():
         table +="</tr>"
     table += "</table>"
     return table
+
+@app.route('/db_drop')
+def db_drop():
+    try:
+        conn = psycopg2.connect("postgresql://rody:CAwpXsTvoU1FpEhTg4TIYZyuqD1IBXky@dpg-cqjqlqmehbks73cgrjo0-a/rody")
+        cur = conn.cursor()
+        cur.execute("DROP TABLE IF EXISTS Basketball;")
+        conn.commit()
+        conn.close()
+        return "Basketball Table Dropped"
