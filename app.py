@@ -11,3 +11,19 @@ def db_test():
 @app.route('/')
 def hello_world():
     return 'Hello, World! from Rody Bertolini in 3308'
+@app.route('/db_create'):
+    def db_create():
+        cur = conn.cursor()
+        cur.execture('''
+        CREATE TABLE IF NOT EXISTS Basketball(
+            First varchar(255),
+            Last varchar(255),
+            City varchar(255),
+            Name varchar(255)
+            Number int
+            );
+            ''')
+        conn.commit()
+        conn.close()
+        return "Basketball table created!"
+    
