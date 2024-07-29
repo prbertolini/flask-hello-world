@@ -14,7 +14,7 @@ def hello_world():
 @app.route('/db_create'):
     def db_create():
         cur = conn.cursor()
-        cur.execture('''
+        cur.execute('''
         CREATE TABLE IF NOT EXISTS Basketball(
             First varchar(255),
             Last varchar(255),
