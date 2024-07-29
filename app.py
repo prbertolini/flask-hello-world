@@ -52,8 +52,8 @@ def db_select():
     records = cur.fetchall()
     conn.close()
     
-    table = "<table border="1">"
-    table += "<tr><th>First</th><th>Last</th><th>City></th><Name</th><th>Number</th></tr>"
+    table = "<table border='1'>"
+    table += '<tr><th>First</th><th>Last</th><th>City</th><th>Name</th><th>Number</th></tr>'
     for row in records:
         table += "<tr>"
         for col in row:
